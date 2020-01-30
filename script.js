@@ -1,3 +1,8 @@
+/*
+The following code will display
+five quotes when the "show anoter quote" button is pressed.
+*/
+
 var quotes = [
   {
     quote: "A problem is a chance for you to do your best.", 
@@ -26,24 +31,27 @@ var quotes = [
 ];
 
 function getRandomQuote() {
-  quoteNum = Math.floor(Math.random() * quotes.length) + 1;
+  quoteNum = Math.floor(Math.random() * quotes.length);
   return quotes[quoteNum];
 }
 
 function printQuote() {
   theQuote = getRandomQuote();
-  quoteProp = <p class="quote"> quotes.quote </p>
-  <p class="source"> quotes.source
-    if (quotes.citation) {
-    <span class="citation"> quotes.citation </span> 
-}
-    if (quotes.year) {
-    <span class="year"> quotes.year </span> 
-}
-  </p>;
-  
-  return quoteProp;
+  quoteProp = '<p class="quote">' + theQuote.quote + '</p>' +
+  '<p class="source">' + theQuote.source 
+    if (theQuote.citation) {
+      quoteProp += '<span class="citation">' + theQuote.citation + '</span>';
+} 
+    if (theQuote.year) {
+      quoteProp += '<span class="year">' + theQuote.year + '</span>'; 
+    }
+  + '</p>'
+
+  var quoteBoxDiv = document.getElementById('quote-box');
+  quoteBoxDiv.innerHTML = quoteProp;
 }
 
-console.log(printQuote());
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+
 
