@@ -32,15 +32,15 @@ function getRandomQuote() {
 
 function printQuote() {
   theQuote = getRandomQuote();
-  quoteProp = <div><p class="quote"> theQuote.quote </p></div>;
-  <p class="source"> theQuote.source
-    if (theQuote.citation) {
-    <span class="citation"> theQuote.citation </span> 
+  quoteProp = <p class="quote"> quotes.quote </p>
+  <p class="source"> quotes.source
+    if (quotes.citation) {
+    <span class="citation"> quotes.citation </span> 
 }
-    if (theQuote.year) {
-    <span class="year"> theQuote.year </span> 
+    if (quotes.year) {
+    <span class="year"> quotes.year </span> 
 }
-  </p>
+  </p>;
   
   return quoteProp;
 }
