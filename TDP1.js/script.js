@@ -3,6 +3,7 @@ The following code will display
 five quotes when the "show anoter quote" button is pressed.
 */
 
+// These are the five qutes that will be displayed when the quote button is pressed.
 var quotes = [
   {
     quote: "A problem is a chance for you to do your best.", 
@@ -30,27 +31,30 @@ var quotes = [
 
 ];
 
+// This function generates a random quote from the quote array.
 function getRandomQuote() {
   quoteNum = Math.floor(Math.random() * quotes.length);
   return quotes[quoteNum];
 }
 
+// This function prints the random html that is generated from "getRandomQuote" function.
 function printQuote() {
   theQuote = getRandomQuote();
   quoteProp = '<p class="quote">' + theQuote.quote + '</p>' +
-  '<p class="source">' + theQuote.source 
+  '<p class="source">' + theQuote.source;
     if (theQuote.citation) {
       quoteProp += '<span class="citation">' + theQuote.citation + '</span>';
 } 
     if (theQuote.year) {
       quoteProp += '<span class="year">' + theQuote.year + '</span>'; 
     }
-  + '</p>'
+  quoteProp += '</p>';
 
   var quoteBoxDiv = document.getElementById('quote-box');
   quoteBoxDiv.innerHTML = quoteProp;
 }
 
+// Creates button functionality
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
 
