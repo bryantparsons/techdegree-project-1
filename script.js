@@ -37,7 +37,10 @@ function getRandomQuote() {
   return quotes[quoteNum];
 }
 
-// This function prints the random html that is generated from "getRandomQuote" function.
+/* This function prints the random html that is generated from "getRandomQuote" function, 
+and changes the background color
+*/
+
 function printQuote() {
   theQuote = getRandomQuote();
   quoteProp = '<p class="quote">' + theQuote.quote + '</p>' +
@@ -52,10 +55,14 @@ function printQuote() {
 
   var quoteBoxDiv = document.getElementById('quote-box');
   quoteBoxDiv.innerHTML = quoteProp;
+
+var r = Math.floor(Math.random() * 256);
+var g = Math.floor(Math.random() * 256);
+var b = Math.floor(Math.random() * 256);
+
+document.body.style.backgroundColor = 'rgb('+ r + ',' + g + ',' + b +')'; 
 }
+
 
 // Creates button functionality
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
-
-
-
